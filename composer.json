@@ -1,0 +1,13 @@
+{
+    "name": "saint/ticket-gen",
+    "description": "Ticket Generator",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        },
+        "files": [
+            "app/helpers/helper.php"
+        ]
+    }
+}
