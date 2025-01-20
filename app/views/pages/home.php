@@ -28,7 +28,17 @@
                         <div>
                             <img class="imgPreview" src="/assets/images/icon-upload.svg">
                         </div>
-                        <span class="imgText">Drag and drop or click to upload</span>
+                        
+                        <div class="imgText">Drag and drop or click to upload</div>
+                        
+                        <div class="divButton">
+                            <button type="button" class="buttonUpload removeAvatar">
+                                <span>Remove image</span>
+                            </button>
+                            <button type="button" class="buttonUpload changeAvatar">
+                                <span>Change image</span>
+                            </button>
+                        </div>
                     </div>
                     <input type="file" name="imgFile" id="imgFile">
                 </div>
@@ -52,7 +62,7 @@
             <label for="">GitHub Username</label>
             <input class="inputArea" type="text" name="" placeholder="@yourusername" required>
             
-            <button type="submit">Generate My Ticket</button>
+            <button class="formButton" type="submit">Generate My Ticket</button>
         </form>
     </div>
     <script src="/assets/js/script.js"></script>

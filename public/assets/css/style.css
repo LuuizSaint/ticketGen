@@ -67,7 +67,6 @@ body{
     padding-bottom: 10px;
 }
 .uploadContainer .uploadArea{
-    background-color: var(--neutralBg);
     border: 2px dashed var(--neutral500);
     border-radius: 8px;
     margin-top: 10px;
@@ -87,6 +86,7 @@ body{
     align-content: center;
     flex-direction: column;
     text-align: center;
+    background-color: var(--neutralBg);
 }
 .uploadInfo .imgPreview{
     border: 1px solid var(--neutral500);
@@ -94,15 +94,41 @@ body{
     border-radius: 7px;
     background-color: var(--neutral700);
 }
-.uploadInfo span{
+.uploadInfo .imgText{
     font-size: 1.2rem;
     font-weight: 500;
-    margin-top: 5px;
+    margin-top: 10px;
     color: var(--neutral300);
+}
+.divButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+    display: none;
+}
+.divButton .buttonUpload{
+    border: none;
+    background-color: var(--neutral700);
+    color: var(--neutral300);
+    padding: 5px 7px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 0px;
+    z-index: 999;
+    cursor: pointer;
+}
+.divButton .buttonUpload span:hover{
+    border-bottom: 2px solid var(--neutral500);
+    border-radius: 2px;
 }
 .uploadArea input{
     opacity: 0;
-    padding: 40px 80px 40px 0px;
+}
+.uploadArea input{
+    padding: 70px 80px 40px 0px;
     cursor: pointer;
 }
 .uploadContainer p{
@@ -138,7 +164,7 @@ body{
 .borderIvalidError:focus{
     outline: none;
 }
-form button{
+form .formButton{
     border: none;
     padding: 15px 0px;
     color: var(--neutral900);
@@ -152,7 +178,7 @@ form button{
     justify-content: center;
     cursor: pointer;
 }
-form button:hover{
+form .formButton:hover{
     background-color: var(--orange700);
     outline: 2px solid var(--neutral500);
     outline-offset: 3px;
