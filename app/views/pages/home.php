@@ -1,4 +1,9 @@
+<?php
 
+use app\classes\Flash;
+use app\classes\Session;
+
+?>
 <!DOCTYPE html>
 <html lang="pt_BR">
 <head>
@@ -40,7 +45,7 @@
                             </button>
                         </div>
                     </div>
-                    <input type="file" name="imgFile" id="imgFile">
+                    <input type="file" name="imgFile" id="imgFile" required>
                 </div>
                 <p id="errorMsg">
                     <i class="fa-solid fa-circle-info"></i>
@@ -49,18 +54,21 @@
             </div>
 
             <label for="">Full Name</label>
-            <input class="inputArea" type="text" name="" required>
+            <input class="inputArea" type="text" name="inputName" required>
+            
+            <?=(Session::has("inputName"))? Flash::falsh("emptyName") : ''; ?>
+            <?=(Session::has("inputName"))? Flash::falsh("maxChar") : ''; ?>
+
 
             <label for="">Email Address</label>
-            <input class="inputArea" type="email" name="" placeholder="example@email.com" required>
-            
-            <!-- <?= '<p class="inputAreaInvalid">
-            <i class="fa-solid fa-circle-info"></i>
-            Please enter a valid email address.
-            </p>' ?> -->
+            <input class="inputArea" type="email" name="inputMail" placeholder="example@email.com" required>
+
+            <?=(Session::has("inputName"))? Flash::falsh("emptyName") : ''; ?>
             
             <label for="">GitHub Username</label>
-            <input class="inputArea" type="text" name="" placeholder="@yourusername" required>
+            <input class="inputArea" type="text" name="inputGit" placeholder="@yourusername" required>
+
+            <?=(Session::has("inputName"))? Flash::falsh("emptyName") : ''; ?>
             
             <button class="formButton" type="submit">Generate My Ticket</button>
         </form>

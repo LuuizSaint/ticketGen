@@ -1,6 +1,7 @@
 <?php
 
 use app\classes\Route;
+use app\classes\Session;
 use app\views\View;
 
 function getRoute() {
@@ -15,7 +16,6 @@ function getRoute() {
     }
 
 }
-
 function getView(string $view, array $data = []){
     try {
 
@@ -27,4 +27,7 @@ function getView(string $view, array $data = []){
     }
 }
 
+function redirect(string $to){
+    return header("Location: {$to}");
+}
 ?>

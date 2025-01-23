@@ -131,15 +131,8 @@ body{
     padding: 70px 80px 40px 0px;
     cursor: pointer;
 }
-.uploadContainer p{
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 10px;
-    width: 100%;
+.uploadContainer #errorMsg{
     padding-top: 10px;
-    font-size: 0.8rem;
-    font-weight: 600;
     color: var(--neutral500);
 }
 .inputArea{
@@ -150,19 +143,23 @@ body{
     border-radius: 8px;
     font-size: 1.2rem;
 }
+.inputArea:hover{
+    background-color: var(--neutral700);
+}
 .inputArea:focus{
     outline: 2px solid var(--neutral500);
     outline-offset: 3px;
 }
-/* flashMessage css */
-.inputAreaInvalid{
+
+#errorMsg{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    width: 100%;
+    font-size: 0.8rem;
+    font-weight: 600;
     color: var(--orange500);
-}
-.borderIvalidError{
-    border: 2px solid var(--orange500);
-}
-.borderIvalidError:focus{
-    outline: none;
 }
 form .formButton{
     border: none;

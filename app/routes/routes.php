@@ -5,7 +5,9 @@ return [
         '/ticket' => 'TicketController@index'
     ],
     'POST' => [
-        '/ticket' => 'TicketController@index'
+        '/ticket' => 'TicketController@index',
+        '/auth' => 'AuthController@index',
+
     ]
 ]
 

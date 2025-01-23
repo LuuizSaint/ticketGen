@@ -15,27 +15,21 @@ imgFile.addEventListener('change', (e) =>{
     
     createAvatar(file);
 })
-
 imgFile.addEventListener('drop', (e) => {
 })
-
 imgFile.addEventListener('dragover', (e) => {
 })
-
 imgFile.addEventListener('dragleave', (e) => {
 })
-
 document.querySelector(".changeAvatar").addEventListener("click",(e) => {
     e.preventDefault();
     removeAvatar();
     imgFile.click();
 })
-
 document.querySelector(".removeAvatar").addEventListener("click",(e) => {
     e.preventDefault();
     removeAvatar();
 })
-
 function createAvatar(file){
 
     if(!arrayExtension.includes(file.type)){
@@ -61,10 +55,8 @@ function createAvatar(file){
 
         imgText.style.display = "none";
         divButton.style.display = "block";
-
     }
 }
-
 function removeAvatar(){
 
     textMsg.textContent = "Upload your photo (JPG or PNG, max size: 500KB).";
