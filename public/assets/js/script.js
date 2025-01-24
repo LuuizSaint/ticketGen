@@ -2,12 +2,14 @@ const imgFile = document.querySelector("#imgFile");
 const imgPreview = document.querySelector(".imgPreview");
 const imgText = document.querySelector(".imgText");
 const divButton = document.querySelector(".divButton");
+const formButton = document.querySelector(".formButton");
 
 const textMsg = document.querySelector('#textMsg');
 const errorMsg = document.querySelector('#errorMsg');
 
 const arrayExtension = ['image/jpeg', 'image/png', 'image/webp'];
 const maxSize = 500 * 1024;
+
 
 imgFile.addEventListener('change', (e) =>{
     e.preventDefault();
@@ -35,12 +37,10 @@ function createAvatar(file){
     if(!arrayExtension.includes(file.type)){
         textMsg.textContent = "Invalid file type! Please upload a JPEG or PNG.";
         errorMsg.style.color = 'var(--orange500)';
-        file = null;
 
     }else if(file.size > maxSize){
         textMsg.textContent = "File too large! Please upload a photo under 500KB.";
-        errorMsg.style.color = 'var(--orange500)'; 
-        file = null;
+        errorMsg.style.color = 'var(--orange500)';
 
     }else{
         textMsg.textContent = "Upload success";
@@ -72,4 +72,3 @@ function removeAvatar(){
     imgText.style.display = "block";
     divButton.style.display = "none";
 }
-

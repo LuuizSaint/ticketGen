@@ -3,6 +3,7 @@
 use app\classes\Flash;
 use app\classes\Session;
 
+
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -47,10 +48,11 @@ use app\classes\Session;
                     </div>
                     <input type="file" name="imgFile" id="imgFile" required>
                 </div>
-                <p id="errorMsg">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <span id="textMsg">Upload your photo (JPG or PNG, max size: 500KB).</span>
-                </p>
+                
+                <p id='errorMsg'>
+                    <i class='fa-solid fa-circle-info'></i>
+                    <span id='textMsg'>Upload your photo (JPG or PNG, max size: 500KB).</span>
+                </p> 
             </div>
 
             <label for="">Full Name</label>
@@ -58,14 +60,11 @@ use app\classes\Session;
             
             <?= Flash::flash("nameLen"); ?>
 
-
             <label for="">Email Address</label>
             <input class="inputArea" type="email" name="inputMail" placeholder="example@email.com" required value="robertin@gmail.com">
 
             <?= Flash::flash("mailInvalid"); ?>
             <?= Flash::flash("mailLen"); ?>
-
-
             
             <label for="">GitHub Username</label>
             <input class="inputArea" type="text" name="inputGit" placeholder="@yourusername" required value="robertin">

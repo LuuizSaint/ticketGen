@@ -11,11 +11,38 @@ class AuthController
         $authName = self::authName();
         $authMail = self::authMail();
         $authGit = self::authGit();
+        $authAvatar = self::authAvatar();
 
-        if($authName && $authMail && $authGit){
+        if($authName && $authMail && $authGit && $authAvatar){
             // salvar no banco
         }
 
+    }
+    public static function authAvatar(){
+        $img = $_FILES["imgFile"];
+        $imgType = mime_content_type($img["tmp_name"]);
+        $imgError = $img["error"];
+        $imgSize = $img["size"];
+
+        $arrayExtension = ['image/jpeg', 'image/png', 'image/webp'];
+        $maxSize = 500 * 1024;
+
+        if($imgError !== 0){
+            Session::set("imgError", "Something unexpected happened, please try again.");
+            redirect("/");
+        }
+
+        if($imgSize > $maxSize){
+            Session::set("imgSize", "File too large! Please upload a photo under 500KB.");
+            Session::set("imgError", "");
+            redirect("/");
+        }
+
+        if(!in_array($imgType, $arrayExtension)){
+            Session::set("imgType", "Invalid file type! Please upload a JPEG or PNG.");
+            Session::set("imgError", "");
+            redirect("/");
+        }
     }
     public static function authName()
     {
