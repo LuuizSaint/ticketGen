@@ -59,17 +59,14 @@ body{
 }
 .container form label{
     font-size: 1.2rem;
-    padding: 20px 0px 10px 0px;
+    padding: 18px 0px 8px 0px;
     font-weight: 600;
     color: var(--neutral300);
-}
-.uploadContainer{
-    padding-bottom: 10px;
 }
 .uploadContainer .uploadArea{
     border: 2px dashed var(--neutral500);
     border-radius: 8px;
-    margin-top: 10px;
+    margin-top: 8px;
     position: relative;
 }
 .uploadContainer .uploadArea:hover{
@@ -150,13 +147,13 @@ body{
     outline: 2px solid var(--neutral500);
     outline-offset: 3px;
 }
-
 #errorMsg{
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 10px;
     width: 100%;
+    margin-top: 5px;
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--orange500);

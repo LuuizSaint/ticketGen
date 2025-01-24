@@ -54,22 +54,26 @@ use app\classes\Session;
             </div>
 
             <label for="">Full Name</label>
-            <input class="inputArea" type="text" name="inputName" required>
+            <input class="inputArea" type="text" name="inputName" required value="Luizin Robertin">
             
-            <?=(Session::has("inputName"))? Flash::falsh("emptyName") : ''; ?>
-            <?=(Session::has("inputName"))? Flash::falsh("maxChar") : ''; ?>
+            <?= Flash::flash("nameLen"); ?>
 
 
             <label for="">Email Address</label>
-            <input class="inputArea" type="email" name="inputMail" placeholder="example@email.com" required>
+            <input class="inputArea" type="email" name="inputMail" placeholder="example@email.com" required value="robertin@gmail.com">
 
-            <?=(Session::has("inputName"))? Flash::falsh("emptyName") : ''; ?>
+            <?= Flash::flash("mailInvalid"); ?>
+            <?= Flash::flash("mailLen"); ?>
+
+
             
             <label for="">GitHub Username</label>
-            <input class="inputArea" type="text" name="inputGit" placeholder="@yourusername" required>
+            <input class="inputArea" type="text" name="inputGit" placeholder="@yourusername" required value="robertin">
 
-            <?=(Session::has("inputName"))? Flash::falsh("emptyName") : ''; ?>
+            <?= Flash::flash("gitLen"); ?>
+            <?= Flash::flash("gitInvalid"); ?>
             
+
             <button class="formButton" type="submit">Generate My Ticket</button>
         </form>
     </div>

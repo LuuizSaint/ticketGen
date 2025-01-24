@@ -6,9 +6,8 @@ class Session
 {
     public static function set(string $index, mixed $value)
     {
-        if(!self::has($index)){
-            $_SESSION[$index] = $value;
-        }
+        $_SESSION[$index] = $value;
+
     }
     public static function has(string $index)
     {
