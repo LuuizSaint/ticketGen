@@ -32,9 +32,9 @@ use app\classes\Session;
                 <div class="uploadArea">
                     <div class="uploadInfo">
                         <div>
-                            <img class="imgPreview" src="/assets/images/icon-upload.svg">
+                            <img class="imgPreview" src="/assets/images/icon-upload.svg" >
                         </div>
-                        
+
                         <div class="imgText">Drag and drop or click to upload</div>
                         
                         <div class="divButton">

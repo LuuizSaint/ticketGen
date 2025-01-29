@@ -10,6 +10,7 @@ const errorMsg = document.querySelector('#errorMsg');
 const arrayExtension = ['image/jpeg', 'image/png', 'image/webp'];
 const maxSize = 500 * 1024;
 
+let imgError = false; 
 
 imgFile.addEventListener('change', (e) =>{
     e.preventDefault();
@@ -37,10 +38,15 @@ function createAvatar(file){
     if(!arrayExtension.includes(file.type)){
         textMsg.textContent = "Invalid file type! Please upload a JPEG or PNG.";
         errorMsg.style.color = 'var(--orange500)';
+        imgError = true; 
+
 
     }else if(file.size > maxSize){
         textMsg.textContent = "File too large! Please upload a photo under 500KB.";
         errorMsg.style.color = 'var(--orange500)';
+        imgError = true; 
+
+
 
     }else{
         textMsg.textContent = "Upload success";
@@ -55,8 +61,16 @@ function createAvatar(file){
 
         imgText.style.display = "none";
         divButton.style.display = "block";
+
+        imgError = false; 
     }
 }
+
+formButton.addEventListener('click', (e) => {
+    if(imgError){
+        e.preventDefault();
+    }
+})
 function removeAvatar(){
 
     textMsg.textContent = "Upload your photo (JPG or PNG, max size: 500KB).";

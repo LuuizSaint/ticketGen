@@ -24,23 +24,21 @@ class AuthController
         $imgError = $img["error"];
         $imgSize = $img["size"];
 
-        $arrayExtension = ['image/jpeg', 'image/png', 'image/webp'];
+        $arrayExtension = ['image/jpeg', 'image/png'];
         $maxSize = 500 * 1024;
 
         if($imgError !== 0){
-            Session::set("imgError", "Something unexpected happened, please try again.");
+            Session::set("imgError", true);
             redirect("/");
         }
 
         if($imgSize > $maxSize){
-            Session::set("imgSize", "File too large! Please upload a photo under 500KB.");
-            Session::set("imgError", "");
+            Session::set("imgError", true);
             redirect("/");
         }
 
         if(!in_array($imgType, $arrayExtension)){
-            Session::set("imgType", "Invalid file type! Please upload a JPEG or PNG.");
-            Session::set("imgError", "");
+            Session::set("imgError", true);
             redirect("/");
         }
     }
