@@ -40,13 +40,10 @@ function createAvatar(file){
         errorMsg.style.color = 'var(--orange500)';
         imgError = true; 
 
-
     }else if(file.size > maxSize){
         textMsg.textContent = "File too large! Please upload a photo under 500KB.";
         errorMsg.style.color = 'var(--orange500)';
         imgError = true; 
-
-
 
     }else{
         textMsg.textContent = "Upload success";
@@ -65,7 +62,6 @@ function createAvatar(file){
         imgError = false; 
     }
 }
-
 formButton.addEventListener('click', (e) => {
     if(imgError){
         e.preventDefault();

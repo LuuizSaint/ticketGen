@@ -30,4 +30,14 @@ function getView(string $view, array $data = []){
 function redirect(string $to){
     return header("Location: {$to}");
 }
+
+function moveFile(string $gitName, array $imgInfo){
+    $imgName = $imgInfo["name"];
+    $imgTmpName = $imgInfo["tmp_name"];
+    $imgExtension = pathinfo($imgName, PATHINFO_EXTENSION);
+
+    $path = dirname(__DIR__, 2)."/public/uploads/".$gitName.".".$imgExtension;
+    var_dump($path);
+    // move_uploaded_file($imgTmpName, $path);
+}
 ?>

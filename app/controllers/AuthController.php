@@ -6,16 +6,17 @@ use app\classes\Session;
 
 class AuthController
 {
+    public string $gitName;
+    public array $imgInfo;
+
     public function index(){
 
         $authName = self::authName();
         $authMail = self::authMail();
-        $authGit = self::authGit();
-        $authAvatar = self::authAvatar();
+        $this->gitName = self::authGit();
+        $this->imgInfo = self::authAvatar();
 
-        if($authName && $authMail && $authGit && $authAvatar){
-            // salvar no banco
-        }
+        moveFile($this->gitName, $this->imgInfo);
 
     }
     public static function authAvatar(){
@@ -27,20 +28,11 @@ class AuthController
         $arrayExtension = ['image/jpeg', 'image/png'];
         $maxSize = 500 * 1024;
 
-        if($imgError !== 0){
+        if($imgError !== 0 || !in_array($imgType, $arrayExtension) || $imgSize > $maxSize){
             Session::set("imgError", true);
             redirect("/");
         }
-
-        if($imgSize > $maxSize){
-            Session::set("imgError", true);
-            redirect("/");
-        }
-
-        if(!in_array($imgType, $arrayExtension)){
-            Session::set("imgError", true);
-            redirect("/");
-        }
+        return $img;
     }
     public static function authName()
     {
@@ -79,6 +71,6 @@ class AuthController
             Session::set("gitInvalid", "Git user contains invalid characters.");
             redirect("/");
         }
-        return true;
+        return $userGit;
     }
 }
