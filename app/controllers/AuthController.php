@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\classes\Session;
+use app\models\Model;
 
 class AuthController
 {
@@ -11,12 +12,20 @@ class AuthController
 
     public function index(){
 
+        $auth = $this->authInfo();
+
+    }
+
+    public function authInfo(){
+
         $authName = self::authName();
         $authMail = self::authMail();
         $this->gitName = self::authGit();
         $this->imgInfo = self::authAvatar();
 
-        moveFile($this->gitName, $this->imgInfo);
+        $avatarPath = moveFile($this->gitName, $this->imgInfo);
+
+        $saveData = Model::executeModel($authName, $authMail, $this->gitName, $avatarPath);
 
     }
     public static function authAvatar(){
@@ -42,7 +51,7 @@ class AuthController
             Session::set("nameLen", "Greater than 3 and less than 32 characters.");
             redirect("/");
         }
-        return true;
+        return $userName;
     }
     public static function authMail()
     {
@@ -57,7 +66,7 @@ class AuthController
             Session::set("mailLen", "Greater than 6 and less than 39 characters.");
             redirect("/");
         }
-        return true;
+        return $userMail;
     }
     public static function authGit()
     {

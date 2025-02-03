@@ -37,7 +37,7 @@ function moveFile(string $gitName, array $imgInfo){
     $imgExtension = pathinfo($imgName, PATHINFO_EXTENSION);
 
     $path = dirname(__DIR__, 2)."/public/uploads/".$gitName.".".$imgExtension;
-    var_dump($path);
     // move_uploaded_file($imgTmpName, $path);
+    return $path;
 }
 ?>
